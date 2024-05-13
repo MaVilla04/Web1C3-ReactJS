@@ -92,50 +92,64 @@ function Borrow() {
   }
 
   return (
-    <div>
-      <h2>Formulario</h2>
-      <form onSubmit={registerBorrow}>
-        <label>Información de Usuario:</label>
-        <input type="text"
-          placeholder='Ingrese su Nombre'
-          className='form-control mb-3'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input type="text"
-          placeholder='Ingrese su Apellido'
-          className='form-control mb-3'
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <label>Información del Libro:</label>
-        <input type="text"
-          placeholder='Ingrese el título del libro'
-          className='form-control mb-3'
-          value={book}
-          onChange={(e) => setBook(e.target.value)}
-        />
-        <input type="text"
-          placeholder='Ingrese el autor del libro'
-          className='form-control mb-3'
-          value={autor}
-          onChange={(e) => setAutor(e.target.value)}
-        />
-        <input type="text"
-          placeholder='Ingrese la editorial del libro'
-          className='form-control mb-3'
-          value={publisher}
-          onChange={(e) => setPublisher(e.target.value)}
-        />
-        <input type="text"
-          placeholder='Ingrese el año de publicación'
-          className='form-control mb-3'
-          value={publicationYear}
-          onChange={(e) => setPublicationYear(e.target.value)}
-        />
+    <main className="container py-5 col-lg-8">
+      <h2 className="text-center mt-5">Borrow a Book</h2>
+      <form className="row mt-3 mb-5 g-3" onSubmit={registerBorrow}>
+        <label className="text-danger text-opacity-75 fw-bold">User Information</label>
+        <div className="col-md-6">
+          <input type="text"
+            placeholder='Enter your Name'
+            className='form-control'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+
+        <div className="col-md-6">
+          <input type="text"
+            placeholder='Enter your Lastname'
+            className='form-control'
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </div>
+
+        <label className="text-danger text-opacity-75 fw-bold">Book Information</label>
+        <div>
+          <input type="text"
+            placeholder='Enter the title of the book'
+            className='form-control'
+            value={book}
+            onChange={(e) => setBook(e.target.value)}
+          />
+        </div>
+        <div>
+          <input type="text"
+            placeholder='Enter the Author`s Name'
+            className='form-control'
+            value={autor}
+            onChange={(e) => setAutor(e.target.value)}
+          />
+        </div>
+        <div className="col-md-6">
+          <input type="text"
+            placeholder='Enter the Book Publisher'
+            className='form-control'
+            value={publisher}
+            onChange={(e) => setPublisher(e.target.value)}
+          />
+        </div>
+        <div className="col-md-6">
+          <input type="text"
+            placeholder='Enter the Year of Publication'
+            className='form-control'
+            value={publicationYear}
+            onChange={(e) => setPublicationYear(e.target.value)}
+          />
+        </div>
         <div className="d-grid gap-2">
           {editingIndex === -1 ? (
-            <button className='btn btn-primary' type='submit'>
+            <button className='btn btn-danger' type='submit'>
               Registrar
             </button>
           ) : (
@@ -187,7 +201,7 @@ function Borrow() {
 
         </tbody>
       </table>
-    </div>
+    </main>
   )
 }
 
