@@ -13,20 +13,27 @@ function AboutUs() {
   }, [])
 
   return (
-    <section>
-      <h3>Lista de Empleados:</h3>
-      <ul className='list-group'>
-        {
-          employees.map((employee) => (
-            <li
-              className='list-group-item'
-              key={employee.id}>
-              <Link to={`/about-us/${employee.id}`}>{employee.name} - {employee.email}</Link>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
+    <main>
+      <h3 className="text-center">Meet Our Employees</h3>
+      <section className="d-flex justify-content-center align-items-center flex-wrap mx-3">
+        <div>
+          <ul className='list-group list-group-flush list-group-numbered'>
+            {
+              employees.map((employee) => (
+                <li
+                  className='list-group-item d-flex align-items-center'
+                  key={employee.id}>
+                  <Link to={`/about-us/${employee.id}`}>{employee.name} - {employee.email}</Link>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div className='d-inline col-sm-8 col-lg-4'>
+          <img src="https://img.freepik.com/vector-premium/academia-bibliotecaria-nina-arte-popular-acuarela-2_886588-140.jpg" alt="img-employess" className="img-fluid small-image" />
+        </div>
+      </section>
+    </main>
   )
 }
 
