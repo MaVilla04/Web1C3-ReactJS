@@ -17,13 +17,13 @@ function AboutUs() {
       <h3 className="text-center">Meet Our Employees</h3>
       <section className="d-flex justify-content-center align-items-center flex-wrap mx-3">
         <div>
-          <ul className='list-group list-group-flush list-group-numbered'>
+          <ul className='list-group list-group-flush'>
             {
               employees.map((employee) => (
                 <li
                   className='list-group-item d-flex align-items-center'
                   key={employee.id}>
-                  <Link to={`/about-us/${employee.id}`}>{employee.name} - {employee.email}</Link>
+                  <Link className='text-decoration-none link-danger link-opacity-75' to={`/about-us/${employee.id}`}> {employee.name} - {employee.email}</Link>
                 </li>
               ))
             }
