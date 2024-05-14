@@ -13,7 +13,7 @@ function AboutUs() {
   }, [])
 
   return (
-    <main>
+    <main className='my-5'>
       <h3 className="text-center">Meet Our Employees</h3>
       <section className="d-flex justify-content-center align-items-center flex-wrap mx-3">
         <div>

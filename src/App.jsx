@@ -5,9 +5,60 @@ import Message from './components/Message';
 import User from './components/User';
 import Custom404 from './components/Custom404';
 
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
+const recommendedBooks = {
+  Fantasy: [
+    {
+      title: 'The Lord of the ring',
+      author: 'J. R. R. Tolkien'
+    },
+    {
+      title: "Harry Potter and the philosopher's stone",
+      author: "J. K. Rowling"
+    },
+    {
+      title: "A Game of Thrones",
+      author: "George R. R. Martin"
+    }
+  ],
+  Romance: [
+    {
+      title: 'My Life Next Door',
+      author: 'Huntley Fitzpatrick'
+    },
+    {
+      title: "Twilight",
+      author: "Stephenie Meyer"
+    },
+    {
+      title: "To All the Boys I've Loved Before",
+      author: "Jenny Han"
+    }
+  ],
+  Horror: [
+    {
+      title: 'The Shining',
+      author: 'Stephen King'
+    },
+    {
+      title: "It",
+      author: "Stephen King"
+    },
+    {
+      title: "The Call of Cthulhu",
+      author: "H. P. Lovecraft"
+    }
+  ]
+
+}
+
 function App() {
+  const [username, setUsername] = useState('Random User');
+  const [topic, setTopic] = useState('Fantasy');
+
+
   return (
     <Router>
       <header>
@@ -47,17 +98,16 @@ function App() {
       </header>
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="home" element={<Home />} />
+        <Route path="/" element={<Home setUsername={setUsername} setTopic={setTopic} />} />
+        <Route path="home" element={<Home setUsername={setUsername} setTopic={setTopic} />} />
         <Route path="about-us" element={<AboutUs />} />
         <Route path="about-us/:id" element={<User />} />
         <Route
           path="message"
           element={
             <Message
-              name="juan"
-              id={123}
-              url="https://emma.cuc.edu.co/static/media/logo_cuc.2cabedb7.png"
+              user={username}
+              topic={recommendedBooks[topic]}
             />
           }
         />
@@ -65,7 +115,7 @@ function App() {
         <Route path="*" element={<Custom404 />} />
       </Routes>
 
-      <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 px-4 mt-5 bg-danger bg-opacity-25">
+      <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 px-4 bg-danger bg-opacity-25">
         <p className="col-12 col-md-4 mb-3 mb-md-0 text-center text-body-secondary">© 2024 BookLand</p>
 
         <Link to="/"
